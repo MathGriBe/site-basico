@@ -1,8 +1,18 @@
+/* Classes tem que colocar o ponto antes do nome da propria, como exemplo (.class) */
+
+* {
+    color: var(--fontColor);
+    font-family: Helvetica;
+}
+
 body {
+    /* Qual fonte é ultilizada no body */
     font-family: monospace;
+    background-color: var(--bg);
 }
 
 ul {
+    /* fonte ultilizada na ul (tag de elemento de lista) */
     font-family: Helvetica;
 }
 
@@ -14,32 +24,52 @@ li {
     list-style: square;
 }
 
-.light-theme{
-    color: #000000;
-    background-color: #00FF00;
-}
-
 :root {
+    /* O seletor de :root representa o elemento <html> na página HTML.
+       Para esse tipo de tarefa, uma melhor prática é definir um conjunto
+       de variáveis CSS globais no elemento :root. */
     --green: #00FF00;
     --white: #ffffff;
-    --black: #000000;  
-}
-
-* {
-    color: var(--fontColor);
-    font-family: Helvetica;
-}
-
-body {
-    background-color: var(--bg);
+    --black: #000000;
+    --bg: var(--green);  /* Definido aqui para evitar o uso antes da definição */
+    --fontColor: var(--black);  /* Definido aqui para evitar o uso antes da definição */
+    --btnBg: var(--black);  /* Definido aqui para evitar o uso antes da definição */
+    --btnFontColor: var(--white);  /* Definido aqui para evitar o uso antes da definição */
 }
 
 .light-theme {
     --bg: var(--green);
-    --fontColor: var(var(--black));
+    --fontColor: var(--black);
+    --btnBg: var(--black);
+    --btnFontColor: var(--white);
 }
 
 .dark-theme {
+    /* bg = Cor de fundo */
+    /* fontColor = Cor da fonte */
     --bg: var(--black);
     --fontColor: var(--green);
+    /* btnBg = cor de fundo do botão */
+    /* btnFontColor = cor da fonte */
+    --btnBg: var(--white);
+    --btnFontColor: var(--black);
 }
+
+.btn {
+    /* Regras para moldar o tamanho, a forma, 
+    a aparência e o posicionamento do botão */
+    position: absolute;
+    top: 20px;
+    left: 250px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+    /* Para tornar as cores do botão diferentes das cores gerais */
+    color: var(--btnFontColor);
+    background-color: var(--btnBg);
+}
+
+/* mellhoria da aparência do botão; 
+   outline-style como none elimina um contorno retangular quando o botão é selecionando (recebe foco) */
+.btn:focus {outline-style: none;}
